@@ -5,9 +5,7 @@ puts "Enter a number between 1 and 100. press enter to submit your guess"
 guess = $stdin.readline()
 guess_as_int = Integer(guess)
 
-if guess_as_int == random_number
-    puts "Correct! You win"
-else
+while guess_as_int != random_number
     if guess_as_int > 100
         puts "Your guess is too high. Try again"
     elsif guess_as_int < 1
@@ -15,4 +13,10 @@ else
     else
         puts "Incorrect! Try again"
     end
+    guess = $stdin.readline()
+    guess_as_int = Integer(guess)
+end
+
+if guess_as_int == random_number
+    puts "Correct! You win"
 end
