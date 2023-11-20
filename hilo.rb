@@ -11,8 +11,8 @@ while count < 5
         puts "Your guess is too high. Try again"
     elsif guess < 1
         puts "Your guess is too low. Try again"
-    else
-        puts (guess == random_number) ? break : "Your guess is incorrect! Try again"
+    elsif guess == random_number
+        break
     end
     input = gets.chomp
     guess = input.to_i
