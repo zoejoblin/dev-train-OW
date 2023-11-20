@@ -7,11 +7,11 @@ while count < 5
     count = count + 1
     if guess.to_s != input
         puts "Your guess is not a whole number. Try again"
-    elsif guess > 100
+    elsif guess > random_number
         puts "Your guess is too high. Try again"
-    elsif guess < 1
+    elsif guess < random_number
         puts "Your guess is too low. Try again"
-    elsif guess == random_number
+    else
         break
     end
     input = gets.chomp
