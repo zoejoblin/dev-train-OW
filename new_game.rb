@@ -1,16 +1,17 @@
 class NewGame
-    @input
-    @guess
-    @random_number
+    def initialize(number_range, no_of_chances = 6)
+        @input = nil
+        @guess = nil
+        @range = number_range
+        @random_number = rand(@range[0]..@range[1])
+        @chances = no_of_chances - 1
+    end
 
-    def start(number_range, chances)
-        @random_number = rand(number_range[0]..number_range[1])
-        puts @random_number
-        guesses = chances - 1
-        puts "Enter a number between #{number_range[0]} and #{number_range[1]}, then press enter to submit your guess. You have #{guesses} chances to guess the correct number"
+    def start
+        puts "Enter a number between #{@range[0]} and #{@range[1]}, then press enter to submit your guess. You have #{@chances} chances to guess the correct number"
         get_guess
         attempts = 0
-        while attempts < guesses
+        while attempts < @chances
             attempts = attempts + 1
             response = check_guess
             puts response ? response : break
